@@ -1,0 +1,27 @@
+Fast api vs Flask api
+Async Support:
+    FastAPI is designed with asynchronous support, allowing you to write asynchronous code using async and await keywords. 
+    The database operations in the FastAPI application use asynchronous SQLAlchemy sessions (AsyncSession and async_sessionmaker), 
+    which can improve performance in scenarios with high concurrency.
+    
+    Flask, on the other hand, is primarily synchronous. It does not natively support asynchronous programming, and database operations are typically synchronous.
+
+Decorators and Routing:
+    FastAPI uses decorators like @app.get, @app.post, etc., to define routes for different HTTP methods. 
+
+    Flask uses the @app.route decorator to define routes. 
+    While it does not use type hints for request and response validation out of the box, you can use libraries like Marshmallow or Flask-RESTful for this purpose.
+
+Request and Response Handling:
+    FastAPI uses Pydantic models for request and response validation. 
+    The input and output models are declared using these Pydantic models, and FastAPI automatically validates and converts the data.
+    
+    Flask typically uses the request object for handling incoming data and the jsonify function for formatting JSON responses. 
+    Validation is often performed manually using conditions and error handling.
+
+Database Integration: 
+    FastAPI's async support is well-suited for working with databases asynchronously. 
+    It uses asynchronous SQLAlchemy to interact with the database in a non-blocking way.
+    
+    Flask uses synchronous SQLAlchemy sessions for database operations. 
+    The operations block the execution of the application until the result is obtained.
