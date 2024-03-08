@@ -21,8 +21,9 @@ async def create_book(request: fastapiSchemas.BookAuthorPayload):
 	global first_request
 	if first_request:
         # Sleep for 10 seconds on the first request
-		time.sleep(10)
 		first_request = False
+		time.sleep(10)
+		
 	
 	res= await fastapiDB.add_book(convert_into_book_db_model(request.book), convert_into_author_db_model(request.author))
 	print(inspect.iscoroutinefunction(fastapiDB.add_book))
