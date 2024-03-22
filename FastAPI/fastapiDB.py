@@ -73,7 +73,7 @@ async def add_book(book:Book, author:Author):
 
 
 async def getbook(ID: int):
-    async with SessionLocal() as session:
+    async with AsyncSession(engine) as session:
         book =await session.execute(select(Book).filter(Book.book_id==ID))
         book = book.scalar_one_or_none()
         if book:
